@@ -1,0 +1,117 @@
+version: '3'
+
+vars:
+  E2E_API_URL: https://localhost:8443
+  E2E_FRONT_URL: http://localhost:9000
+  FEATURES_PATH: ../src/test/resources/features
+  COMPOSE_FILE: docker/dev/docker-compose.yml
+  COMPOSE_ENV: docker/dev/.env
+
+tasks:
+  e2e:install:
+    desc: Install E2E runner
+    dir: tests/e2e
+    cmd: npm install && npm install -g dotenv-cli
+
+  demo:start:
+    desc: Start docker for demo
+    cmds:
+      - task: setup:certs:demo
+      - docker container prune -f && docker compose -f docker/demo/docker-compose.yml --env-file docker/demo/.env up -d --build --force-recreate
+
+  demo:stop:
+    desc: Stop docker for demo
+    cmd: docker compose -f docker/demo/docker-compose.yml --env-file docker/demo/.env down
+
+  demo:restart:
+    desc: Restart docker for demo
+    cmds:
+      - task: demo:stop
+      - task: demo:start
+
+  setup:certs:demo:
+    desc: Generate certificates and keys for demo environment
+    cmds:
+      - task: generate:certs
+        vars:
+          ENV: demo
+
+  generate:certs:
+    desc: Generate certificates and keys for a specific environment
+    internal: true
+    dir: "docker/{{.ENV}}/resources"
+    dotenv: [ '../{{.ENV_FILE| default ".env"}}' ]
+    cmds:
+      # SSL certificate
+      - cmd: rm -fv selfsigned.key selfsigned.crt
+      - cmd: |
+          openssl req -x509 -newkey rsa:2048 \
+            -keyout selfsigned.key \
+            -out selfsigned.crt \
+            -days 3650 -nodes \
+            -subj "/CN=linid.localtest.me/OU=Test/O=Test/L=Test/ST=Test/C=FR" \
+            -addext "subjectAltName=DNS:linid.localtest.me,DNS:ui,DNS:localhost" >/dev/null 2>&1
+      # API keystore
+      - cmd: rm -fv {{.ROOT_DIR}}/api/src/main/resources/keystore.jks
+      - cmd: |
+          keytool -genkeypair -v -alias mykey \
+            -dname "CN=Test, OU=Test, O=Test, L=Test, S=Test, C=FR" \
+            -keystore {{.ROOT_DIR}}/api/src/main/resources/keystore.jks \
+            -storepass "$SSL_KEY_PASSWORD" -keypass "$SSL_KEY_PASSWORD" \
+            -keyalg RSA -keysize 2048 -validity 3650 >/dev/null 2>&1
+
+  setup:certs:dev:
+    desc: Generate certificates and keys for dev environment
+    cmds:
+      - task: generate:certs
+        vars:
+          ENV: dev
+
+  dev:start:
+    desc: Start docker for dev
+    cmds:
+      - task: setup:certs:dev
+      - docker container prune -f && docker compose -f docker/dev/docker-compose.yml --env-file docker/dev/.env up -d --build --force-recreate
+
+  dev:stop:
+    desc: Stop docker for dev
+    cmd: docker compose -f docker/dev/docker-compose.yml --env-file docker/dev/.env down
+  
+  dev:restart:
+    desc: Restart docker for dev
+    cmds:
+      - task: dev:stop
+      - task: dev:start
+  
+  dev:e2e:
+    desc: Start e2e test on dev
+    dir: tests/e2e
+    env:
+      CYPRESS_FEATURES_PATH: "../features"
+    cmd: dotenv -e ../../docker/dev/.env -- npm run start:ui
+
+  e2e:lint:
+    desc: Lint Gherkin feature files
+    dir: tests/e2e
+    cmd: npx gherkin-lint "../features/**/*.feature"
+
+  e2e:spec:
+    desc: "Run specific test(s) - usage: task e2e:spec -- ../features/api/Health.feature"
+    dir: tests/e2e
+    env:
+      CYPRESS_FEATURES_PATH: "{{.FEATURES_PATH}}"
+      E2E_API_URL: "{{.E2E_API_URL}}"
+      E2E_FRONT_URL: "{{.E2E_FRONT_URL}}"
+    cmd: npx cypress run --spec "{{.CLI_ARGS}}"
+
+  e2e:docker:
+    desc: Run E2E tests in Docker (CI mode, requires test-network)
+    cmd: |
+      docker run --rm \
+        -e E2E_API_URL=https://orchealm-api:8443 \
+        -e E2E_FRONT_URL=http://orchealm-ui:9000 \
+        -e CYPRESS_FEATURES_PATH=/app/features \
+        -e TZ=Europe/Paris \
+        --network test-network \
+        -v "$(pwd)/features":/app/features \
+        vincentmoittie/e2e-test-runner:latest

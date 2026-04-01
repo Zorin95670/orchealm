@@ -1,0 +1,1098 @@
+{
+  "default": {
+    "img": {},
+    "q-avatar": {},
+    "q-drawer": {
+      "bordered": true,
+      "show-if-above": true,
+      "side": "left"
+    },
+    "q-btn": {
+      "color": "primary",
+      "outlined": true,
+      "noCaps": true
+    },
+    "q-select": {
+      "outlined": true,
+      "dense": true
+    },
+    "q-input": {
+      "outlined": true,
+      "dense": true
+    },
+    "q-item": {},
+    "q-header": {
+      "elevated": true,
+      "class": "bg-primary text-white"
+    },
+    "q-layout": {
+      "view": "hHh lpR fFf"
+    },
+    "q-toolbar": {},
+    "q-toolbar-title": {
+      "class": "row items-center"
+    }
+  },
+  "Layouts": {
+    "MainLayout": {
+      "logo": {
+        "src": "/icons/logo.svg",
+        "width": "40",
+        "height": "40"
+      },
+      "q-drawer": {
+        "class": "column"
+      },
+      "menuButton": {
+        "dense": true,
+        "flat": true,
+        "outlined": false,
+        "round": true,
+        "color": "white",
+        "icon": "menu"
+      },
+      "ApplicationSettingsList": {
+        "q-list": {
+          "dense": true
+        },
+        "q-item": {
+          "class": "q-pa-none q-ma-none",
+          "style": "min-height:26px;font-size:12px;"
+        },
+        "q-item-section": {
+          "class": "q-pa-none q-ma-none",
+          "style": "min-height:26px;font-size:12px;flex-direction:row;justify-content:start;align-items:center;"
+        },
+        "language": {
+          "dense": true,
+          "class": "full-width"
+        },
+        "darkMode": {
+          "dense": true,
+          "class": "full-width"
+        }
+      },
+      "ApplicationInformationList": {
+        "q-list": {
+          "dense": true
+        },
+        "q-item": {
+          "class": "q-pa-none q-ma-none",
+          "style": "min-height:16px;font-size:12px;"
+        },
+        "q-item-section": {
+          "class": "q-pa-none q-ma-none",
+          "style": "min-height:16px;font-size:12px;flex-direction:row;justify-content:start;align-items:center;"
+        },
+        "q-item-section-avatar": {
+          "class": "q-pa-none q-ma-none",
+          "style": "min-width:24px"
+        }
+      },
+      "ApplicationMenuList": {
+        "q-list": {},
+        "public-releases": {
+          "q-avatar": {
+            "icon": "public"
+          },
+          "q-item": {},
+          "q-item-section-avatar": {},
+          "q-item-section-title": {},
+          "team": {
+            "q-avatar": {
+              "icon": "rocket"
+            },
+            "q-item": {}
+          }
+        },
+        "private-releases": {
+          "q-avatar": {
+            "icon": "whatshot"
+          },
+          "q-item": {},
+          "q-item-section-avatar": {},
+          "q-item-section-title": {},
+          "team": {
+            "q-avatar": {
+              "icon": "rocket"
+            },
+            "q-item": {}
+          }
+        },
+        "allReleases": {
+          "q-avatar": {
+            "icon": "track_changes"
+          },
+          "q-item": {},
+          "q-item-section-avatar": {},
+          "q-item-section-title": {}
+        },
+        "calendar": {
+          "q-avatar": {
+            "icon": "calendar_month"
+          },
+          "q-item": {},
+          "q-item-section-avatar": {},
+          "q-item-section-title": {}
+        },
+        "teams": {
+          "q-avatar": {
+            "icon": "groups"
+          },
+          "q-item": {},
+          "q-item-section-avatar": {},
+          "q-item-section-title": {}
+        }
+      }
+    }
+  },
+  "Pages": {
+    "IndexPage": {
+      "q-page": {
+        "class": "q-pa-md flex flex-center"
+      }
+    },
+    "DeploymentsCalendarPage": {
+      "q-page": {
+        "class": "q-pa-md flex column full-width full-height"
+      },
+      "CalendarMenu": {
+        "q-menu": {},
+        "q-separator": {},
+        "header": {},
+        "noAction-item": {},
+        "noAction-itemSection": {},
+        "noAction-itemLabel": {},
+        "action-planned-item": {
+          "v-ripple": true,
+          "clickable": true
+        },
+        "action-planned-itemSection": {},
+        "action-planned-itemLabel": {},
+        "action-planned-iconSection": {},
+        "action-planned-icon": {
+          "name": "edit_calendar"
+        }
+      },
+      "CalendarSearchCard": {
+        "q-card": {
+          "flat": true,
+          "class": "inline-flex self-center q-mb-sm"
+        },
+        "q-card-section": {
+          "class": "row"
+        },
+        "client": {
+          "dense": true,
+          "class": "q-ml-md",
+          "clearable": true,
+          "style": "min-width: 225px;"
+        },
+        "environment": {
+          "dense": true,
+          "class": "q-ml-md",
+          "clearable": true,
+          "debounce": "250",
+          "style": "min-width: 225px;"
+        },
+        "project": {
+          "dense": true,
+          "class": "q-ml-md",
+          "clearable": true,
+          "style": "min-width: 225px;"
+        },
+        "displayFields": {
+          "class": "q-ml-md",
+          "dense": true,
+          "style": "min-width: 225px;"
+        }
+      },
+      "Calendar": {
+        "container": {
+          "class": "flex column",
+          "style": "flex: 1;"
+        },
+        "q-toolbar": {
+          "class": "flex synchronized-color"
+        },
+        "full-calendar": {
+          "style": "flex: 1;"
+        },
+        "calendarViewContainer": {
+          "class": "col flex justify-start"
+        },
+        "calendarView": {
+          "noCaps": true,
+          "flat": true,
+          "stretch": true
+        },
+        "displayDate": {
+          "class": "col flex flex-center"
+        },
+        "actionsContainer": {
+          "class": "col flex justify-end"
+        },
+        "previous": {
+          "icon": "chevron_left",
+          "flat": true,
+          "stretch": true
+        },
+        "today": {
+          "class": "q-mx-xs",
+          "flat": true,
+          "stretch": true
+        },
+        "next": {
+          "icon": "chevron_right",
+          "flat": true,
+          "stretch": true
+        }
+      }
+    },
+    "LatestDeploymentsPage": {
+      "q-page": {
+        "class": "q-pa-md column items-center"
+      },
+      "q-card-invalid": {},
+      "q-card-section-invalid": {
+      },
+      "q-icon-invalid": {
+        "name": "warning",
+        "color": "warning",
+        "size": "sm"
+      },
+      "DeploymentSearchCard": {
+        "q-card": {
+          "flat": true,
+          "class": "q-mb-md"
+        },
+        "q-card-section": {
+          "class": "row"
+        },
+        "client": {
+          "dense": true,
+          "class": "q-ml-md",
+          "clearable": true
+        },
+        "environment": {
+          "dense": true,
+          "class": "q-ml-md",
+          "clearable": true
+        },
+        "state": {
+          "dense": true,
+          "class": "q-ml-md",
+          "clearable": true
+        },
+        "project": {
+          "dense": true,
+          "clearable": true
+        }
+      },
+      "EnvironmentCard": {
+        "q-card": {
+          "class": "q-ma-sm flex flex-center full-width"
+        },
+        "q-card-section": {
+          "class": "q-pa-sm"
+        },
+        "title": {
+          "span": {
+            "class": "text-h6"
+          },
+          "BlurLoader": {
+            "class": "q-ma-sm blur-loader--height-lg blur-loader--width-lg"
+          }
+        },
+        "sub-title": {
+          "span": {
+            "class": "text-caption text-grey-6 text-italic "
+          },
+          "BlurLoader": {
+            "class": "q-ma-sm blur-loader--height-lg blur-loader--width-lg"
+          }
+        }
+      }
+    },
+    "DeploymentsPage": {
+      "q-page": {
+        "class": "q-pa-md column items-center"
+      },
+      "q-table": {},
+      "columns": {
+        "id": {
+          "isVisible": false,
+          "sortable": true,
+          "type": "uuid"
+        },
+        "teamKey": {
+          "isVisible": false,
+          "sortable": true,
+          "type": "text"
+        },
+        "projectId": {
+          "isVisible": false,
+          "sortable": true,
+          "type": "uuid"
+        },
+        "plannedPeriod": {
+          "isVisible": false,
+          "isFilter": false
+        },
+        "actualPeriod": {
+          "isVisible": false,
+          "isFilter": false
+        },
+        "delayed": {
+          "isVisible": false,
+          "sortable": true,
+          "type": "boolean"
+        },
+        "masterProjectId": {
+          "isVisible": false,
+          "sortable": true,
+          "type": "uuid"
+        },
+        "projectName": {
+          "sortable": true,
+          "type": "text"
+        },
+        "masterProjectName": {
+          "sortable": true,
+          "type": "text"
+        },
+        "color": {
+          "isVisible": false,
+          "isFilter": false
+        },
+        "environmentName": {
+          "sortable": true,
+          "type": "text"
+        },
+        "environmentShortName": {
+          "isVisible": false,
+          "sortable": true,
+          "type": "text"
+        },
+        "environmentPosition": {
+          "isVisible": false,
+          "sortable": true,
+          "type": "number"
+        },
+        "version": {
+          "sortable": true,
+          "type": "text"
+        },
+        "client": {
+          "sortable": true,
+          "type": "text"
+        },
+        "status": {
+          "sortable": true,
+          "type": "list",
+          "values": [
+            {
+              "label": "DeploymentStatusChip.completed",
+              "value": "COMPLETED"
+            },
+            {
+              "label": "DeploymentStatusChip.inProgress",
+              "value": "IN_PROGRESS"
+            },
+            {
+              "label": "DeploymentStatusChip.failed",
+              "value": "FAILED"
+            },
+            {
+              "label": "DeploymentStatusChip.planned",
+              "value": "PLANNED"
+            }
+          ]
+        },
+        "state": {
+          "sortable": true,
+          "type": "list",
+          "values": [
+            {
+              "label": "DeploymentStatusChip.hot",
+              "value": "HOT"
+            },
+            {
+              "label": "DeploymentStatusChip.new",
+              "value": "NEW"
+            }
+          ]
+        }
+      },
+      "TableSearch": {
+        "q-field": {
+          "style": "min-width:600px"
+        },
+        "q-menu": {
+          "anchor": "bottom middle",
+          "self": "top middle"
+        },
+        "q-tabs": {
+          "active-color": "primary",
+          "align": "justify",
+          "class": "text-grey",
+          "dense": true,
+          "indicator-color": "primary",
+          "narrow-indicator": true
+        },
+        "q-chip": {
+          "square": true
+        },
+        "q-chip-avatar": {
+          "class": "q-px-md",
+          "size": "28px",
+          "color": "primary",
+          "textColor": "white"
+        },
+        "searchIcon": {
+          "name": "search"
+        },
+        "menuOpenIcon": {
+          "name": "arrow_drop_down"
+        },
+        "menuCloseIcon": {
+          "name": "arrow_drop_up"
+        },
+        "search": {
+          "icon": "search",
+          "class": "self-end q-mt-sm"
+        },
+        "delete": {
+          "icon": "remove",
+          "color": "negative",
+          "flat": true,
+          "round": true,
+          "class": "q-mr-sm"
+        },
+        "add": {
+          "icon": "add",
+          "color": "primary",
+          "flat": true,
+          "round": true
+        },
+        "filterType": {
+          "dense": true
+        },
+        "inputUuid": {
+          "dense": true
+        },
+        "inputText": {
+          "dense": true
+        },
+        "inputNumber": {
+          "dense": true
+        },
+        "columnSettings": {
+          "drag": {
+            "name": "drag_indicator"
+          },
+          "show": {
+            "flat": true,
+            "dense": true,
+            "round": true,
+            "icon": "visibility"
+          },
+          "hide": {
+            "flat": true,
+            "dense": true,
+            "round": true,
+            "icon": "visibility_off"
+          }
+        }
+      }
+    },
+    "TeamsPage": {
+      "q-page": {
+        "class": "q-pa-md column items-center"
+      },
+      "add": {
+        "icon": "add",
+        "color": "primary"
+      },
+      "q-table": {
+        "bordered": true,
+        "flat": true,
+        "hide-header": true,
+        "class": "full-width q-pa-sm"
+      },
+      "TeamCard": {
+        "q-card": {
+          "class": "q-ma-md"
+        },
+        "title-card-section": {},
+        "description-card-section": {},
+        "q-card-actions": {
+          "align": "right"
+        },
+        "edit": {},
+        "see": {}
+      }
+    },
+    "TeamDetailPage": {
+      "q-page": {
+        "class": "q-pa-md column items-center"
+      },
+      "ChangeTeamPrivateVisibilityDialog": {
+        "q-dialog": {},
+        "q-icon": {
+          "name": "public_off"
+        },
+        "q-card-section-title": {
+          "class": "row items-center"
+        },
+        "title": {
+          "class": "q-ml-sm"
+        },
+        "q-card-section-content": {},
+        "q-card-actions": {},
+        "confirm": {
+          "color": "positive"
+        },
+        "cancel": {
+          "color": "negative"
+        }
+      },
+      "ChangeTeamPublicVisibilityDialog": {
+        "q-dialog": {},
+        "q-icon": {
+          "name": "public"
+        },
+        "q-card-section-title": {
+          "class": "row items-center"
+        },
+        "title": {
+          "class": "q-ml-sm"
+        },
+        "q-card-section-content": {},
+        "q-card-actions": {},
+        "confirm": {
+          "color": "positive"
+        },
+        "cancel": {
+          "color": "negative"
+        }
+      },
+      "TeamVisibilityCard": {
+        "q-card": {
+          "class": "q-mt-md"
+        },
+        "q-card-actions": {},
+        "disclaimer": {
+          "class": "text-negative text-bold"
+        },
+        "q-card-section-title": {},
+        "q-card-section-visibility": {},
+        "confirm": {}
+      },
+      "ProjectsCard": {
+        "q-card": {
+          "class": "q-mt-md"
+        },
+        "q-card-section": {},
+        "q-card-section-title": {},
+        "q-card-actions": {},
+        "q-table": {},
+        "add": {},
+        "delete": {
+          "icon": "delete",
+          "color": "negative",
+          "flat": true,
+          "round": true
+        },
+        "edit": {
+          "icon": "edit",
+          "color": "info",
+          "flat": true,
+          "round": true
+        },
+        "DeleteProjectCard": {
+          "q-dialog": {},
+          "q-icon": {
+            "name": "delete"
+          },
+          "q-card-section-title": {
+            "class": "row items-center"
+          },
+          "title": {
+            "class": "q-ml-sm"
+          },
+          "q-card-section-content": {},
+          "q-card-actions": {},
+          "confirm": {
+            "color": "positive"
+          },
+          "cancel": {
+            "color": "negative"
+          }
+        }
+      },
+      "DeleteEnvironmentDialog": {
+        "q-dialog": {},
+        "q-icon": {
+          "name": "delete"
+        },
+        "q-card-section-title": {
+          "class": "row items-center"
+        },
+        "title": {
+          "class": "q-ml-sm"
+        },
+        "q-card-section-content": {},
+        "q-card-actions": {},
+        "confirm": {
+          "color": "positive"
+        },
+        "cancel": {
+          "color": "negative"
+        }
+      },
+      "TeamEnvironmentsCard": {
+        "q-card": {},
+        "title": {},
+        "add": {},
+        "notify": {
+          "q-notify": {
+          },
+          "q-btn": {
+          }
+        },
+        "UpdateSuccessNotify": {
+          "type": "positive"
+        },
+        "UpdateErrorNotify": {
+          "type": "negative"
+        },
+        "environments": {
+          "q-card-section": {
+            "class": "row"
+          }
+        },
+        "noData": {
+          "q-icon": {
+            "name": "warning",
+            "color": "warning",
+            "class": "q-mr-sm",
+            "size": "sm"
+          },
+          "q-card-section": {}
+        },
+        "EnvironmentCard": {
+          "name": {
+            "class": "q-mb-md"
+          },
+          "shortName": {
+            "class": "q-mb-md q-mt-sm"
+          },
+          "q-card": {
+            "flat": true,
+            "bordered": true,
+            "class": "q-ma-sm"
+          },
+          "q-card-section": {
+            "class": "q-pa-sm"
+          },
+          "q-card-actions": {
+            "class": "q-px-none column flex-center q-pa-none"
+          },
+          "title": {
+            "span": {
+              "class": "text-h6"
+            },
+            "BlurLoader": {
+              "class": "q-ma-sm blur-loader--height-lg blur-loader--width-lg"
+            }
+          },
+          "sub-title": {
+            "span": {
+              "class": "text-caption text-grey-6 text-italic "
+            },
+            "BlurLoader": {
+              "class": "q-ma-sm blur-loader--height-lg blur-loader--width-lg"
+            }
+          },
+          "edit": {
+            "flat": true,
+            "round": true,
+            "icon": "edit",
+            "size": "sm",
+            "class": "q-mx-sm"
+          },
+          "delete": {
+            "flat": true,
+            "round": true,
+            "icon": "delete",
+            "size": "sm",
+            "color": "negative",
+            "class": "q-mx-sm"
+          },
+          "save": {
+            "color": "positive",
+            "flat": true,
+            "round": true,
+            "icon": "save",
+            "size": "sm"
+          },
+          "cancel": {
+            "color": "negative",
+            "flat": true,
+            "round": true,
+            "icon": "close",
+            "size": "sm",
+            "style": "margin-left: 0;"
+          }
+        },
+        "name": {
+        },
+        "shortName": {
+          "class": "q-mx-md"
+        },
+        "save": {
+          "icon": "save",
+          "color": "positive",
+          "flat": true,
+          "round": true
+        },
+        "q-form": {
+          "class": "row justify-center items-start"
+        },
+        "q-separator": {
+          "class": "q-my-md"
+        }
+      },
+      "EnvironmentCard": {
+        "q-card": {
+          "flat": true,
+          "bordered": true,
+          "class": "q-ma-sm"
+        },
+        "q-card-section": {
+          "class": "q-pa-sm"
+        },
+        "title": {
+          "span": {
+            "class": "text-h6"
+          },
+          "BlurLoader": {
+            "class": "q-ma-sm blur-loader--height-lg blur-loader--width-lg"
+          }
+        },
+        "sub-title": {
+          "span": {
+            "class": "text-caption text-grey-6 text-italic "
+          },
+          "BlurLoader": {
+            "class": "q-ma-sm blur-loader--height-lg blur-loader--width-lg"
+          }
+        }
+      }
+    }
+  },
+  "AddEnvironmentDialog": {
+    "name": {
+      "dense": true,
+      "class": "q-mb-sm"
+    },
+    "shortName": {
+      "dense": true
+    },
+    "add": {
+      "color": "positive"
+    },
+    "cancel": {
+      "color": "negative"
+    }
+  },
+  "AddProjectDialog": {
+    "name": {
+      "dense": true,
+      "class": "q-mb-sm"
+    },
+    "parent": {
+      "dense": true,
+      "class": "q-mb-sm",
+      "input-debounce": 500
+    },
+    "no-parent": {
+      "q-item": {},
+      "q-item-section": {
+        "class": "text-grey"
+      }
+    },
+    "organization": {
+      "dense": true
+    },
+    "color": {
+      "noHeaderTabs": true,
+      "defaultView": "palette",
+      "class": "q-mt-sm"
+    },
+    "color-hint": {
+      "style": "line-height: 1; font-size: 11px; color: rgba(0,0,0, 0.54)"
+    },
+    "add": {
+      "color": "positive"
+    },
+    "cancel": {
+      "color": "negative"
+    }
+  },
+  "EditProjectDialog": {
+    "name": {
+      "dense": true,
+      "class": "q-mb-sm"
+    },
+    "parent": {
+      "dense": true,
+      "class": "q-mb-sm",
+      "input-debounce": 500
+    },
+    "no-parent": {
+      "q-item": {},
+      "q-item-section": {
+        "class": "text-grey"
+      }
+    },
+    "organization": {
+      "dense": true
+    },
+    "color": {
+      "noHeaderTabs": true,
+      "defaultView": "palette",
+      "class": "q-mt-sm"
+    },
+    "color-hint": {
+      "style": "line-height: 1; font-size: 11px; color: rgba(0,0,0, 0.54)"
+    },
+    "edit": {
+      "color": "positive"
+    },
+    "cancel": {
+      "color": "negative"
+    }
+  },
+  "AddTeamDialog": {
+    "key": {
+      "dense": true,
+      "class": "q-mb-md required-field"
+    },
+    "name": {
+      "dense": true,
+      "class": "q-mb-md required-field"
+    },
+    "description": {
+      "dense": true
+    },
+    "edit": {
+      "color": "positive"
+    },
+    "cancel": {
+      "color": "negative"
+    }
+  },
+  "EditTeamDialog": {
+    "name": {
+      "dense": true,
+      "class": "q-mb-md required-field"
+    },
+    "description": {
+      "dense": true
+    },
+    "edit": {
+      "color": "positive"
+    },
+    "cancel": {
+      "color": "negative"
+    }
+  },
+  "DeploymentCard": {
+    "q-card": {
+      "class": "cursor-pointer max-width",
+      "style": "min-width: 100px;"
+    },
+    "clientSection": {
+      "class": "flex justify-start q-pa-sm text-bold"
+    },
+    "versionSection": {
+      "class": "flex row flex-center q-px-sm q-pt-none q-pb-sm"
+    },
+    "q-icon": {
+      "color": "warning",
+      "name": "warning",
+      "class": "q-mr-xs"
+    },
+    "q-linear-progress": {
+    }
+  },
+  "DeploymentStatusTooltip": {
+    "q-tooltip": {},
+    "icon": {
+      "COMPLETED": {},
+      "IN_PROGRESS": {},
+      "DELAY": {}
+    }
+  },
+  "ProjectCard": {
+    "q-card": {},
+    "organization-section": {
+      "class": "q-pt-sm q-pl-sm q-pr-none q-pb-none text-grey"
+    },
+    "name-section": {
+      "class": "flex q-px-sm q-pt-none q-pb-sm text-bold justify-end"
+    }
+  },
+  "DeploymentStatusBadge": {
+    "hot-badge": {
+      "style": "right: -10px; top: -5px;",
+      "floating": true,
+      "align": "top",
+      "rounded": true,
+      "color": "red-14"
+    },
+    "hot-icon": {
+      "name": "whatshot",
+      "class": "q-mr-xs",
+      "color": "white"
+    },
+    "new-badge": {
+      "style": "right: -10px; top: -5px;",
+      "floating": true,
+      "align": "top",
+      "rounded": true,
+      "color": "red"
+    },
+    "new-icon": {
+      "name": "star",
+      "class": "q-mr-xs",
+      "color": "yellow"
+    }
+  },
+  "PublicBadge": {
+    "q-badge": {
+      "color": "green",
+      "class": "q-ml-sm"
+    },
+    "q-icon": {
+      "name": "public",
+      "class": "q-mr-xs"
+    }
+  },
+  "DeploymentStatusChip": {
+    "completed-chip": {
+      "dense": true,
+      "color": "green",
+      "text-color": "white"
+    },
+    "completed-icon": {
+      "name": "check",
+      "class": "q-mr-xs"
+    },
+    "failed-chip": {
+      "dense": true,
+      "color": "red",
+      "text-color": "white"
+    },
+    "failed-icon": {
+      "name": "error",
+      "class": "q-mr-xs"
+    },
+    "inProgress-chip": {
+      "dense": true,
+      "color": "orange",
+      "text-color": "white"
+    },
+    "inProgress-spinner": {
+      "class": "q-mr-sm"
+    },
+    "hot-chip": {
+      "dense": true,
+      "color": "red-14",
+      "text-color": "white"
+    },
+    "hot-icon": {
+      "name": "whatshot",
+      "class": "q-mr-xs"
+    },
+    "new-chip": {
+      "dense": true,
+      "color": "red",
+      "text-color": "white"
+    },
+    "new-icon": {
+      "name": "star",
+      "color": "yellow",
+      "class": "q-mr-xs"
+    }
+  },
+  "PlannedDeploymentDialog": {
+    "q-dialog": {},
+    "q-card": {
+      "style": "min-width: 600px"
+    },
+    "q-icon": {},
+    "q-card-section-title": {},
+    "q-card-section": {
+      "class": "flex row justify-center"
+    },
+    "title": {},
+    "q-card-actions": {},
+    "confirm": {},
+    "cancel": {},
+    "teamSelect": {
+      "class": "required-field",
+      "style": "max-width:300px;width:300px"
+    },
+    "projectSelect": {
+      "class": "required-field",
+      "style": "max-width:200px;width:200px"
+    },
+    "environmentSelect": {
+      "class": "required-field q-mx-sm",
+      "style": "max-width:200px;width:200px"
+    },
+    "clientSelect": {
+      "class": "required-field",
+      "style": "max-width:200px;width:200px"
+    },
+    "versionInput": {
+      "class": "required-field",
+      "style": "max-width:200px;width:200px"
+    },
+    "startDate": {
+      "q-input": {
+        "class": "required-field q-mr-sm",
+        "style": "max-width:250px;width:250px"
+      },
+      "q-date": {},
+      "q-time": {},
+      "dateIcon": {
+        "class": "cursor-pointer",
+        "name": "event"
+      },
+      "timeIcon": {
+        "class": "cursor-pointer",
+        "name": "access_time"
+      }
+    },
+    "endDate": {
+      "q-input": {
+        "class": "required-field",
+        "style": "max-width:250px;width:250px"
+      },
+      "q-date": {},
+      "q-time": {},
+      "dateIcon": {
+        "class": "cursor-pointer",
+        "name": "event"
+      },
+      "timeIcon": {
+        "class": "cursor-pointer",
+        "name": "access_time"
+      }
+    }
+  }
+}

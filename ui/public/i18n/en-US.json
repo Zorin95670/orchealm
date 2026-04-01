@@ -1,0 +1,384 @@
+{
+  "application": {
+    "title": "Orchealm",
+    "dateTimeFormat": "YYYY/MM/DD HH:mm",
+    "dateFormat": "YYYY/MM/DD",
+    "timeFormat": "HH:mm",
+    "hour": "hour|hours",
+    "minute": "minute|minutes",
+    "language": "Application language",
+    "darkMode": "Dark mode",
+    "darkModeOptions": {
+      "on": "Dark",
+      "off": "Light",
+      "auto": "System default"
+    },
+    "time": {
+      "use24HourFormat": "false"
+    },
+    "mask": {
+      "date-time": "####-##-## ##:##",
+      "date": "####-##-##",
+      "time": "##:##"
+    }
+  },
+  "default": {
+    "separator": "or",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No",
+    "and": "And",
+    "or": "Or",
+    "contains": "Contains {value}",
+    "notContains": "Not contains {value}",
+    "equals": "Equals to {value}",
+    "notEquals": "Not equals to {value}",
+    "startWith": "Start with {value}",
+    "notStartWith": "Not start with {value}",
+    "endWith": "End with {value}",
+    "notEndWith": "Not end with {value}",
+    "superior": "Superior to {value}",
+    "inferior": "Inferior to {value}",
+    "rules": {
+      "required": "Field is required.",
+      "invalidDate": "Date is invalid."
+    }
+  },
+  "Layouts": {
+    "MainLayout": {
+      "ApplicationMenuList": {
+        "public-releases": {
+          "label": "Public latest releases"
+        },
+        "private-releases": {
+          "label": "My latest releases"
+        },
+        "allReleases": {
+          "label": "All releases"
+        },
+        "calendar": {
+          "label": "Deployment Calendar"
+        },
+        "teams": {
+          "label": "My teams"
+        }
+      }
+    }
+  },
+  "Pages": {
+    "TeamsPage": {
+      "title": "My teams",
+      "TeamCard": {
+        "edit": "Edit team",
+        "see": "See team"
+      },
+      "add": "Add team"
+    },
+    "DeploymentsCalendarPage": {
+      "title": "Deployment Calendar",
+      "CalendarMenu": {
+        "title": "Actions on {date}",
+        "noAction": "no possible actions on this date",
+        "plannedDeployment": "Planned a deployment"
+      },
+      "CalendarSearchCard": {
+        "client": {
+          "label": "Filter by client",
+          "hint": "Multiple selections are allowed."
+        },
+        "environment": {
+          "label": "Filter by environment",
+          "hint": "Use * as a wildcard in your search."
+        },
+        "project": {
+          "label": "Filter by project",
+          "hint": "Multiple selections are allowed."
+        },
+        "displayFields": {
+          "label": "Calendar Event Labels",
+          "hint": "Select deployment's fields to display in event labels."
+        },
+        "displayFieldOptions": {
+          "environment": "Environment",
+          "project": "Project",
+          "client": "Client"
+        }
+      },
+      "Calendar": {
+        "calendarView": {
+          "label": "Calendar view",
+          "options": {
+            "month": "Month",
+            "week": "Week",
+            "day": "Day"
+          }
+        },
+        "previous": "",
+        "today": "Today",
+        "next": ""
+      }
+    },
+    "DeploymentsPage": {
+      "title": "All releases",
+      "columns": {
+        "id": "Identifier",
+        "teamKey": "Team key",
+        "projectId": "Project identifier",
+        "plannedPeriod": "Planned period",
+        "actualPeriod": "Actuel period",
+        "delayed": "Delayed",
+        "masterProjectId": "Project parent identifier",
+        "projectName": "Project name",
+        "masterProjectName": "Project parent name",
+        "color": "Color",
+        "environmentName": "Environment name",
+        "environmentShortName": "Environment shortname",
+        "environmentPosition": "Environment order",
+        "version": "Version",
+        "client": "Client",
+        "status": "Status",
+        "state": "Freshness"
+      },
+      "TableSearch": {
+        "hint": "",
+        "label": "Filter deployments",
+        "prefix": "",
+        "suffix": "",
+        "search": "Search",
+        "add": "",
+        "delete": "",
+        "tabs": {
+          "filter": "Filter by",
+          "columnSettings": "Column management"
+        },
+        "filterBy": "Filter by {name}",
+        "filterType": "Filter type",
+        "inputUuid": "UUID search value",
+        "inputText": "Text search value",
+        "inputNumber": "Number search value"
+      }
+    },
+    "LatestDeploymentsPage": {
+      "title": "Latest releases:",
+      "invalid": "Team has no projects or no environments!",
+      "DeploymentSearchCard": {
+        "client": {
+          "label": "Filter by client"
+        },
+        "environment": {
+          "label": "Filter by environment"
+        },
+        "project": {
+          "label": "Filter by project"
+        },
+        "state": {
+          "label": "Filter by freshness"
+        }
+      }
+    },
+    "TeamDetailPage": {
+      "title": "My teams:",
+      "DeleteEnvironmentDialog": {
+        "title": "Delete an environment",
+        "content": "Are you sure you want to delete the environment <b>\"{name}\"</b>?",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+      },
+      "TeamEnvironmentsCard": {
+        "title": "Environments",
+        "noData": "No environment",
+        "add": "Add environment",
+        "UpdateSuccessNotify": "Environment successfully updated!",
+        "UpdateErrorNotify": "Error during environment's update.",
+        "EnvironmentCard": {
+          "notify": {
+            "label": "Project update will be applied",
+            "cancel": "Undo"
+          },
+          "name": {
+            "title": "Click to edit environment name.",
+            "label": "New environment name",
+            "hint": "Press enter to save, escape to cancel"
+          },
+          "shortName": {
+            "title": "Click to edit environment shortName.",
+            "label": "New environment shortName",
+            "hint": "Press enter to save, escape to cancel"
+          }
+        }
+      },
+      "ProjectsCard": {
+        "title": "Projects",
+        "columns": {
+          "parent": "Project parent",
+          "organization": "Organization",
+          "name": "Name",
+          "color": "Color"
+        },
+        "add": "Add project",
+        "delete": "",
+        "edit": "",
+        "DeleteProjectDialog": {
+          "title": "Delete a project",
+          "content": "Are you sure you want to delete the project <b>\"{organization} - {name}\"</b> and all it's sub-projects ?",
+          "confirm": "Confirm",
+          "cancel": "Cancel"
+        }
+      },
+      "ChangeTeamPrivateVisibilityDialog": {
+        "title": "Make Team Private",
+        "content": "Are you sure you want to make this team private? Only team members and administrators will be able to view it and its related resources.",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+      },
+      "ChangeTeamPublicVisibilityDialog": {
+        "title": "Make Team Public",
+        "content": "Are you sure you want to make this team public? All users will be able to view this team and its related resources.",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+      },
+      "TeamVisibilityCard": {
+        "title": "Change team visibility",
+        "disclaimer": "Only administrator can change visibility team!",
+        "visibility": {
+          "label": "Is public ?"
+        },
+        "confirm": "Confirm"
+      }
+    }
+  },
+  "AddEnvironmentDialog": {
+    "title": "Add new environment",
+    "add": "Add",
+    "cancel": "Cancel",
+    "name": {
+      "label": "Name",
+      "hint": "Set new environment name's"
+    },
+    "shortName": {
+      "label": "Short name",
+      "hint": "Set new environment short name's"
+    }
+  },
+  "AddProjectDialog": {
+    "title": "Add new Project",
+    "add": "Add",
+    "cancel": "Cancel",
+    "name": {
+      "label": "Name",
+      "hint": "Set new project name's"
+    },
+    "parent": {
+      "label": "Parent project"
+    },
+    "no-parent": "No results",
+    "organization": {
+      "label": "Organization",
+      "hint": "Set new project organization's"
+    },
+    "color": "Set new project color's"
+  },
+  "PlannedDeploymentDialog": {
+    "title": "Planned a deployment",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "team": {
+      "label": "Select team"
+    },
+    "project": {
+      "label": "Select project"
+    },
+    "environment": {
+      "label": "Select environment"
+    },
+    "client": {
+      "label": "Select or type client",
+      "hint": "Press enter to validate new client name"
+    },
+    "version": {
+      "label": "Version to deploy"
+    },
+    "startDate": {
+      "label": "Select start date",
+      "hint": "Click the calendar icon to change the date and the clock icon to change the time."
+    },
+    "endDate": {
+      "label": "Select end date",
+      "hint": "Click the calendar icon to change the date and the clock icon to change the time."
+    }
+  },
+  "EditProjectDialog": {
+    "title": "Edit Project",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "name": {
+      "label": "Name",
+      "hint": "Modify project name's"
+    },
+    "parent": {
+      "label": "Parent project"
+    },
+    "no-parent": "No results",
+    "organization": {
+      "label": "Organization",
+      "hint": "Modify project organization's"
+    },
+    "color": "Modify project color's"
+  },
+  "AddTeamDialog": {
+    "title": "Add team",
+    "edit": "Add",
+    "cancel": "Cancel",
+    "key": {
+      "label": "Key",
+      "hint": "Must be unique"
+    },
+    "name": {
+      "label": "Name"
+    },
+    "description": {
+      "label": "Description"
+    }
+  },
+  "EditTeamDialog": {
+    "title": "Edit team",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "name": {
+      "label": "Name",
+      "hint": "Modify team name's"
+    },
+    "description": {
+      "label": "Description",
+      "hint": "Modify team description's"
+    }
+  },
+  "DeploymentStatusTooltip": {
+    "title": {
+      "COMPLETED": "Completed",
+      "IN_PROGRESS": "In progress",
+      "DELAY": "Delayed"
+    },
+    "start": "Started at:",
+    "end": "Ended at:",
+    "plannedEnd": "Planned end:",
+    "duration": "Duration:",
+    "delay": "Delay:",
+    "elapsedTime": "Elapsed time:"
+  },
+  "DeploymentStatusBadge": {
+    "hot": "Hot",
+    "new": "New"
+  },
+  "PublicBadge": {
+    "label": "Public"
+  },
+  "DeploymentStatusChip": {
+    "completed": "Completed",
+    "failed": "Failed",
+    "inProgress": "In progress",
+    "planned": "Planned",
+    "hot": "Hot",
+    "new": "New"
+  }
+}

@@ -1,0 +1,5 @@
+// app global css
+.required-field .q-field__label::after {
+  content: " *";
+  color: var(--q-negative);
+}
