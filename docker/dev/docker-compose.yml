@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0.0
+    container_name: keycloak
+    command: start-dev --import-realm
+    networks:
+      - test-network
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN_USERNAME}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KEYCLOAK_IMPORT: /opt/keycloak/data/import/realm-export.json
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../keycloak/realm-export.json:/opt/keycloak/data/import/realm-export.json
+
+  setup-users:
+    image: curlimages/curl:latest
+    container_name: setup-users
+    networks:
+      - test-network
+    depends_on:
+      - keycloak
+    env_file:
+      - .env
+    entrypoint: [ "sh", "-c", "/app/init-users.sh" ]
+    volumes:
+      - ../keycloak/init-users.sh:/app/init-users.sh:ro
+    working_dir: /app
+
+  db:
+    image: postgres:18.3-alpine
+    container_name: db
+    environment:
+      POSTGRES_USER: ${DATABASE_ADMIN_USER}
+      POSTGRES_PASSWORD: ${DATABASE_ADMIN_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    ports:
+      - ${DATABASE_PORT}:5432
+    volumes:
+      - ./resources/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+
+  init-db:
+    image: postgres:18.3-alpine
+    container_name: init-db
+    depends_on:
+      - db
+    environment:
+      PGPASSWORD: ${DATABASE_ADMIN_PASSWORD}
+    entrypoint:
+      - sh
+      - -c
+      - |
+        echo "Waiting for schema..."
+        
+        until psql \
+          -h "db" \
+          -p "$DATABASE_PORT" \
+          -U "$DATABASE_ADMIN_USER" \
+          -d "$DATABASE_NAME" \
+          -tAc "SELECT 1 FROM information_schema.tables WHERE table_name = 'deployments'" \
+        | grep -q 1
+        do
+          echo "Tables not ready yet..."
+          sleep 2
+        done
+        
+        echo "Schema ready"
+        psql \
+          -h "db" \
+          -p "$DATABASE_PORT" \
+          -U "$DATABASE_ADMIN_USER" \
+          -d "$DATABASE_NAME" \
+          -f /scripts/init_data.sql
+    volumes:
+      - ./resources/init_data.sql:/scripts/init_data.sql:ro
+
+networks:
+  test-network:
+    name: test-network
+    driver: bridge

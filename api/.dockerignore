@@ -1,0 +1,5 @@
+target
+.idea
+*.iml
+# Keystores are mounted at runtime, never baked into the image.
+*.jks

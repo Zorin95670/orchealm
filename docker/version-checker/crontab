@@ -1,0 +1,1 @@
+0 2 * * * /usr/local/bin/check-versions.sh >> /var/log/version-checker.log 2>&1

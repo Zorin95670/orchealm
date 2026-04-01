@@ -1,0 +1,6 @@
+node_modules
+dist
+.quasar
+quasar.config.*.temporary.compiled*
+.idea
+.vscode

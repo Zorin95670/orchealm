@@ -1,0 +1,11 @@
+# IDE
+.idea/
+*.iml
+
+# Build
+api/target/
+
+# Generated secrets (see `task setup:certs:*`)
+*.jks
+*.key
+*.crt
